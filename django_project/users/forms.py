@@ -6,7 +6,7 @@ from cities.models import City
 
 class UserRegisterForm(UserCreationForm):
     postal_code = forms.CharField(label='Code postal')
-    city = forms.CharField(label='Ville ou commune')
+    city = forms.ModelChoiceField(City.objects.all(), label='Ville ou commune')
     address = forms.CharField(label='Addresse')
     phone_number = forms.CharField(label='Numéro de telephone')
 

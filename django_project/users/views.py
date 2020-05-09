@@ -2,15 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
+from cities.models import City
 
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            user.refresh_from_db()
             user.profile.postal_code = form.cleaned_data.get('postal_code')
-            user.profile.city = form.cleaned_data.get('city')
+            user.profile.city = City.objects.get(name__exact=form.cleaned_data.get('city'))
             user.profile.address = form.cleaned_data.get('address')
             user.profile.phone_number = form.cleaned_data.get('phone_number')
             user.save()
