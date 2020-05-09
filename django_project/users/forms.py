@@ -2,14 +2,14 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
-
+from cities.models import City
 
 class UserRegisterForm(UserCreationForm):
-    code_postal = forms.CharField()
-    ville = forms.CharField()
-    addresse = forms.CharField()
-    num_tel = forms.CharField()
+    postal_code = forms.CharField(label='Code postal')
+    city = forms.CharField(label='Ville ou commune')
+    address = forms.CharField(label='Addresse')
+    phone_number = forms.CharField(label='Numéro de telephone')
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'code_postal', 'ville', 'addresse', 'num_tel']
+        fields = ['username', 'password1', 'password2', 'postal_code', 'city', 'address', 'phone_number']
