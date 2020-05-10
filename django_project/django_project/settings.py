@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'commerce.apps.CommerceConfig',
     'cities.apps.CitiesConfig',
     'crispy_forms',
+    'chartjs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -22,6 +22,7 @@ from users import views as user_views
 from commerce import views as commerce_views
 
 urlpatterns = [
+    path('commune/', include('cities.urls')),
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
     path('buy/', commerce_views.buy, name='buy'),
