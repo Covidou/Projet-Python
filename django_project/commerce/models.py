@@ -3,10 +3,10 @@ from django.utils import timezone
 from users.models import User
 
 class Product(models.Model):
-    nom = models.CharField(max_length=20)
+    name = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.nom
+        return self.name
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
