@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     
     <script type="text/javascript">
-        $.get('{% url "line_chart_json" %}', function(data) {
+        $.get('{% url "retrieve_data" commune %}', function(data) {
             var ctx = $("#myChart").get(0).getContext("2d");
             new Chart(ctx, {
                 type: 'line', data: data

@@ -11,6 +11,7 @@ def dataviz(request, commune):
         City.objects.get(name__iexact=commune)
         context = {
             'title': f'Dataviz de la commune {commune}',
+            'commune': commune
         }
         return render(request, 'cities/dataviz.html', context=context)
     except Exception as ex:
@@ -38,6 +39,7 @@ class LineChartJSONView(BaseLineChartView):
         datasets = []
         for i in Product.objects.all():
             orders = i.order_set.all()
+            orders = orders.filter(user__profile__city__name__iexact=self.kwargs['commune'])
             product_dataset = []
             today = datetime.today()
             for j in range(7):
@@ -49,4 +51,4 @@ class LineChartJSONView(BaseLineChartView):
 
         return datasets
 
-line_chart_json = LineChartJSONView.as_view()
+retrieve_data = LineChartJSONView.as_view()
