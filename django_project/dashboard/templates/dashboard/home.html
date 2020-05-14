@@ -1,23 +1,10 @@
 {% extends "dashboard/base.html" %}
 {% block content %}
-  {% if user.is_authenticated %}
-    {% for quizz in quizzs %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ quizz.author }}</a>
-              <small class="text-muted">{{ quizz.date_posted|date:"F d, Y" }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ quizz.title }}</a></h2>
-            <p class="article-content">{{ quizz.content }}</p>
-          </div>
-        </article>
-    {% endfor %}
-  {% else %}
-    <article class="media content-section">
-      <div class="media-body">
-        <h1>Covidou: achetez des produits de première nécessité</h1>
-      </div>
-    </article>
-  {% endif %}
+  <article class="media content-section">
+    <div class="media-body">
+      <h1>Covidou: achetez des produits de première nécessité</h1>
+      <p>Bonjour! Nous sommes une équipe de six étudiants en école d’ingénieurs et nous sommes fiers de vous présenter Covidou !</p>
+      <p>En cette période de crise sanitaire il est impératif de restreindre la propagation du virus et donc de limiter les déplacements de tous. C’est pourquoi nous avons créer la plateforme Covidou, elle vous permet de vous approvisionner en produits de première nécessité en les sélectionnant sur notre site et ils sont livrés directement à votre porte. Pour avoir accès à ces fonctionnalités il vous suffit de vous inscrire !</p>
+    </div>
+  </article>
 {% endblock content %}
